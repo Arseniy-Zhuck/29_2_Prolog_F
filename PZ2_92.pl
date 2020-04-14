@@ -45,7 +45,8 @@ pr5_2:-read_str(A,N),count_words(A,K),write(K).
 
 count_words(A,K):-count_words(A,0,K).
 count_words([],K,K):-!.
-count_words(A,I,K):-skip_space(A,A1),get_word(A1,Word,A2),Word \=[],I1 is I+1,count_words(A2,I1,K),!.
+count_words(A,I,K):-skip_space(A,A1),get_word(A1,Word,A2),Word \=[],
+					I1 is I+1,count_words(A2,I1,K),!.
 count_words(_,K,K).
 
 skip_space([32|T],A1):-skip_space(T,A1),!.
@@ -57,6 +58,18 @@ get_word(A,Word,A2):-get_word(A,[],Word,A2).
 get_word([],Word,Word,[]):-!.
 get_word([32|T],Word,Word,T):-!.
 get_word([H|T],W,Word,A2):-append(W,[H],W1),get_word(T,W1,Word,A2).
+
+pr5_3:-read_str(A,N),get_words(A,Words),write_list_str(Words).
+
+write_list_str([]):-!.
+write_list_str([H|T]):-write_str(H),nl,write_list_str(T).
+
+get_words(A,Words):-get_words(A,[],Words).
+get_words([],B,B):-!.
+get_words(A,Temp_words,B):-
+	skip_space(A,A1),get_word(A1,Word,A2),Word \=[],
+	append(Temp_words,[Word],T_w),get_words(A2,T_w,B),!.
+get_words(_,B,B).
 
 
 
