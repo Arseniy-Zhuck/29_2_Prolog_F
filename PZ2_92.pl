@@ -60,8 +60,8 @@ get_word([32|T],Word,Word,T):-!.
 get_word([H|T],W,Word,A2):-append(W,[H],W1),get_word(T,W1,Word,A2).
 
 pr5_3:-	read_str(A,N),get_words(A,Words),uniq_el(Words,Unique_words),
-		counts_in_list(Unique_words,Words,Counts),
-		write_list_str(Unique_words),write(Counts).
+		counts_in_list(Unique_words,Words,Counts),max_in_list(Counts,Ind),
+		el_no(Unique_words,Ind,Freq_word),write_str(Freq_word).
 
 write_list_str([]):-!.
 write_list_str([H|T]):-write_str(H),nl,write_list_str(T).
@@ -88,6 +88,30 @@ counts_in_list([],_,[]):-!.
 counts_in_list([El|T_El],List,[Count|T_Count]):-
 		count_in_list(El,List,Count),counts_in_list(T_El,List,T_Count).
 
+max_in_list([H|T],Imax):-max_in_list(T,H,1,2,Imax).
+max_in_list([],_,Cur,_,Cur):-!.
+max_in_list([H|T],Max,Cur,Ind,Imax):-H>Max,Ind1 is Ind+1,max_in_list(T,H,Ind,Ind1,Imax),!.
+max_in_list([_|T],Max,Cur,Ind,Imax):-Ind1 is Ind+1,max_in_list(T,Max,Cur,Ind1,Imax).
+
+el_no(A,I,X):-el_no(A,I,1,X).
+el_no([H|_],I,I,H):-!.
+el_no([_|T],I,K,X):-K1 is K+1,el_no(T,I,K1,X).
+
+read_str_f(A,N,Flag):-get0(X),r_str_f(X,A,[],N,0,Flag).
+r_str_f(-1,A,A,N,N,0):-!.
+r_str_f(10,A,A,N,N,1):-!.
+r_str_f(X,A,B,N,K,Flag):-K1 is K+1,append(B,[X],B1),get0(X1),r_str_f(X1,A,B1,N,K1,Flag).
+
+read_list_str(List,List_len):-read_str_f(A,N,Flag),r_l_s(List,List_len,[A],[N],Flag).
+r_l_s(List,List_len,List,List_len,0):-!.
+r_l_s(List,List_len,Cur_list,Cur_list_len,_):-
+	read_str_f(A,N,Flag),append(Cur_list,[A],C_l),append(Cur_list_len,[N],C_l_l),
+	r_l_s(List,List_len,C_l,C_l_l,Flag).
+
+
+
+pr5_6:-	see('c:/Prolog/29_2_Prolog_F/29_1.txt'),read_list_str(List,List_len),seen,
+		tell('c:/Prolog/29_2_Prolog_F/test.txt'),write_list_str(List),told.
 
 /*unique(A, Result):- 
         unique(A, Result, []), !.
