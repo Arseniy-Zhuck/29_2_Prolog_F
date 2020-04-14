@@ -59,7 +59,9 @@ get_word([],Word,Word,[]):-!.
 get_word([32|T],Word,Word,T):-!.
 get_word([H|T],W,Word,A2):-append(W,[H],W1),get_word(T,W1,Word,A2).
 
-pr5_3:-read_str(A,N),get_words(A,Words),write_list_str(Words).
+pr5_3:-	read_str(A,N),get_words(A,Words),uniq_el(Words,Unique_words),
+		counts_in_list(Unique_words,Words,Counts),
+		write_list_str(Unique_words),write(Counts).
 
 write_list_str([]):-!.
 write_list_str([H|T]):-write_str(H),nl,write_list_str(T).
@@ -71,5 +73,30 @@ get_words(A,Temp_words,B):-
 	append(Temp_words,[Word],T_w),get_words(A2,T_w,B),!.
 get_words(_,B,B).
 
+uniq_el(Ref,Res):-uniq_el(Ref,Res,[]).
+uniq_el([],Res,Res):-!.
+uniq_el([H|T],Res,Cur):-check(H,Cur,Cur,R), uniq_el(T,Res,R).
+check(El,[El|_],Ref,Ref):-!.
+check(El,[],Ref,R):-append(Ref,[El],R),!.
+check(El,[_|T],Ref,R):-check(El,T,Ref,R).
+
+count_in_list(_,[],0):-!.
+count_in_list(EL,[EL|Tail],K):-count_in_list(EL,Tail,K1), K is K1+1,!.
+count_in_list(El,[_|Tail],K):-count_in_list(El,Tail,K).
+
+counts_in_list([],_,[]):-!.
+counts_in_list([El|T_El],List,[Count|T_Count]):-
+		count_in_list(El,List,Count),counts_in_list(T_El,List,T_Count).
+
+
+/*unique(A, Result):- 
+        unique(A, Result, []), !.
+unique([],[],_):-!.
+unique([H|T], [H|T], Found):-
+        not(member(H, Found)),
+        unique(T, T, [H|Found]),!.
+unique([_|T], Result, Found):-
+        unique(T, Result, Found).
+*/
 
 
