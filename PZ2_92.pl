@@ -109,9 +109,12 @@ r_l_s(List,List_len,Cur_list,Cur_list_len,_):-
 	r_l_s(List,List_len,C_l,C_l_l,Flag).
 
 
+max([H|T], M):-max(T, M, H).
+max([], M, M):-!.
+max([H|T], M, MI):-H > MI, !, max(T, M, H).
+max([_|T], M, MI):-max(T,M, MI).
 
-pr5_6:-	see('c:/Prolog/29_2_Prolog_F/29_1.txt'),read_list_str(List,List_len),seen,
-		tell('c:/Prolog/29_2_Prolog_F/test.txt'),write_list_str(List),told.
+pr5_6:-see('c:/Prolog/29_2_Prolog_F/29_1.txt'),read_list_str(List,List_len),seen,max(List_len,X),write(X).
 
 /*unique(A, Result):- 
         unique(A, Result, []), !.
