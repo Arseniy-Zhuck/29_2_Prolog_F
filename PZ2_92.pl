@@ -151,6 +151,12 @@ sub_set(Sub_set,[H|Set]):-sub_set(Sub_set,Set).
 
 pr_subset:-read_str(A,N),sub_set(B,A),write_str(B),nl,fail.
 
+sub_set_k([],[],0).
+sub_set_k([H|Sub_set],[H|Set],K):- K1 is K-1,sub_set_k(Sub_set,Set,K1).
+sub_set_k(Sub_set,[H|Set],K):-sub_set_k(Sub_set,Set,K).
+pr_subset_k:-read_str(A,N),read(K),sub_set_k(B,A,K),write_str(B),nl,fail.
+
+
 /*unique(A, Result):- 
         unique(A, Result, []), !.
 unique([],[],_):-!.
