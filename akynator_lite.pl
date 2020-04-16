@@ -2,10 +2,10 @@
 read_str(A):-get0(X),r_str(X,A,[]).
 r_str(10,A,A):-!.
 r_str(X,A,B):-append(B,[X],B1),get0(X1),r_str(X1,A,B1).
-high_r(X,Y):-	repeat, (high(X,Y) -> (put(32),write(X),nl,write(Y),write("."),nl,
+high_r(X,Y):-	repeat, (high(X,Y) -> (nl,write(X),nl,write(Y),write("."),
 				retract(high(X,Y))) ;X=nil,Y=nil).
-pr2:-tell('c:/Prolog/29_1_prolog_F/111.txt'),high_r(X,_),X=nil,told.
-pr3:-see('c:/Prolog/29_1_prolog_F/111.txt'),get0(Sym),read_high(Sym),seen.
+pr2:-tell('c:/Prolog/29_2_prolog_F/111.txt'),high_r(X,_),X=nil,told.
+pr3:-see('c:/Prolog/29_2_prolog_F/111.txt'),get0(Sym),read_high(Sym),seen.
 read_high(-1):-!.
 read_high(_):-	read_str(Lang),name(X,Lang),read(Y),asserta(high(X,Y)),
 				get0(Sym),read_high(Sym).
