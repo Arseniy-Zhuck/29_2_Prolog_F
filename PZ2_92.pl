@@ -121,10 +121,20 @@ build_all_razm_p:-
 		read_str(A,N),read(K),b_a_rp(A,K,[]).
 		
 b_a_rp(A,0,Perm1):-write_str(Perm1),nl,!,fail.
-b_a_rp(A,N,Perm):-in_list(A,El),N1 is N-1,b_a_rp(A,N1,[El|Perm]).
+b_a_rp(A,N,Perm):-	in_list(A,El),N1 is N-1,
+					b_a_rp(A,N1,[El|Perm]).
 
 in_list([El|_],El).
 in_list([_|T],El):-in_list(T,El).
+
+build_all_perm:-
+		read_str(A,N),b_a_p(A,[]).
+
+in_list_exlude([El|T],El,T).
+in_list_exlude([H|T],El,[H|Tail]):-in_list_exlude(T,El,Tail).
+
+b_a_p([],Perm1):-write_str(Perm1),nl,!,fail.
+b_a_p(A,Perm):-in_list_exlude(A,El,A1),b_a_p(A1,[El|Perm]).
 
 /*unique(A, Result):- 
         unique(A, Result, []), !.
