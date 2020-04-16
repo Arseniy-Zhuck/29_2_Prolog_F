@@ -114,7 +114,17 @@ max([], M, M):-!.
 max([H|T], M, MI):-H > MI, !, max(T, M, H).
 max([_|T], M, MI):-max(T,M, MI).
 
-pr5_6:-see('c:/Prolog/29_2_Prolog_F/29_1.txt'),read_list_str(List,List_len),seen,max(List_len,X),write(X).
+pr5_6:-	see('c:/Prolog/29_2_Prolog_F/29_1.txt'),
+		read_list_str(List,List_len),seen,max(List_len,X),write(X).
+
+build_all_razm_p:-
+		read_str(A,N),read(K),b_a_rp(A,K,[]).
+		
+b_a_rp(A,0,Perm1):-write_str(Perm1),nl,!,fail.
+b_a_rp(A,N,Perm):-in_list(A,El),N1 is N-1,b_a_rp(A,N1,[El|Perm]).
+
+in_list([El|_],El).
+in_list([_|T],El):-in_list(T,El).
 
 /*unique(A, Result):- 
         unique(A, Result, []), !.
