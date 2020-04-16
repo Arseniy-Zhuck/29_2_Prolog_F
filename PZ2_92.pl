@@ -134,7 +134,22 @@ in_list_exlude([El|T],El,T).
 in_list_exlude([H|T],El,[H|Tail]):-in_list_exlude(T,El,Tail).
 
 b_a_p([],Perm1):-write_str(Perm1),nl,!,fail.
-b_a_p(A,Perm):-in_list_exlude(A,El,A1),b_a_p(A1,[El|Perm]).
+b_a_p(A,Perm):-in_list_exlude(A,El,A1),
+				b_a_p(A1,[El|Perm]).
+				
+				
+build_all_razm:-
+		read_str(A,N),read(K),b_a_r(A,[],K).
+
+b_a_r(_,Perm1,0):-write_str(Perm1),nl,!,fail.
+b_a_r(A,Perm,K):-in_list_exlude(A,El,A1),K1 is K-1,
+				b_a_r(A1,[El|Perm],K1).
+				
+sub_set([],[]).
+sub_set([H|Sub_set],[H|Set]):-sub_set(Sub_set,Set).
+sub_set(Sub_set,[H|Set]):-sub_set(Sub_set,Set).
+
+pr_subset:-read_str(A,N),sub_set(B,A),write_str(B),nl,fail.
 
 /*unique(A, Result):- 
         unique(A, Result, []), !.
