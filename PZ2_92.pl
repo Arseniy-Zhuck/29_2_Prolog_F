@@ -125,5 +125,16 @@ unique([H|T], [H|T], Found):-
 unique([_|T], Result, Found):-
         unique(T, Result, Found).
 */
+append_K(X,0,A,A):-!.
+append_K(X,K,A,A1):-K1 is K-1,append_K(X,K1,A,[X|A1]).
+
+expand_list(A,N,K,A1):-expand_list(A,N,K,A1,[]).
+expand_list([],0,_,A1,A1):-!.
+expand_list([H|T],N,K,A1,B):-N1 is N-1,append_K(H,K,C,[]),append(B,C,B1),expand_list(T,N1,K,A1,B1).
+
+sub_set_p([],[],0).
+sub_set_p([H|Sub_set],[H|Set],K):- K1 is K-1,sub_set_p(Sub_set,Set,K1).
+sub_set_p(Sub_set,[H|Set],K):-sub_set_p(Sub_set,Set,K).
+sochet_pov:-read_str(A,N),read(K),expand_list(A,N,K,A1),sub_set_p(B,A1,K),write_str(B),nl,fail.
 
 
