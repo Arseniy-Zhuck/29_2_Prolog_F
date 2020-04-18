@@ -10,7 +10,7 @@ let main argv =
     let solve a b c =
         let D = b*b - 4.0*a*c
         ((-b-sqrt(D))/(2.0*a),(-b+sqrt(D))/(2.0*a))
-    printfn "%A%A" solve (1.0, 2.0, -3.0)
+    printfn "%A%A" (solve 1.0 2.0 (-3.0))
     
     let x = y 10 in    
         printfn "%i" x

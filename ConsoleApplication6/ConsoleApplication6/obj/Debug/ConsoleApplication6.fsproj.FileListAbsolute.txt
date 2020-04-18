@@ -6,3 +6,11 @@ c:\users\днс\documents\visual studio 2013\Projects\ConsoleApplication6\Consol
 c:\users\днс\documents\visual studio 2013\Projects\ConsoleApplication6\ConsoleApplication6\bin\Debug\FSharp.Core.xml
 c:\users\днс\documents\visual studio 2013\Projects\ConsoleApplication6\ConsoleApplication6\obj\Debug\ConsoleApplication6.exe
 c:\users\днс\documents\visual studio 2013\Projects\ConsoleApplication6\ConsoleApplication6\obj\Debug\ConsoleApplication6.pdb
+C:\Prolog\29_2_Prolog_F\ConsoleApplication6\ConsoleApplication6\bin\Debug\ConsoleApplication6.XML
+C:\Prolog\29_2_Prolog_F\ConsoleApplication6\ConsoleApplication6\obj\Debug\ConsoleApplication6.exe
+C:\Prolog\29_2_Prolog_F\ConsoleApplication6\ConsoleApplication6\obj\Debug\ConsoleApplication6.pdb
+C:\Prolog\29_2_Prolog_F\ConsoleApplication6\ConsoleApplication6\bin\Debug\ConsoleApplication6.exe.config
+C:\Prolog\29_2_Prolog_F\ConsoleApplication6\ConsoleApplication6\bin\Debug\ConsoleApplication6.exe
+C:\Prolog\29_2_Prolog_F\ConsoleApplication6\ConsoleApplication6\bin\Debug\ConsoleApplication6.pdb
+C:\Prolog\29_2_Prolog_F\ConsoleApplication6\ConsoleApplication6\bin\Debug\FSharp.Core.dll
+C:\Prolog\29_2_Prolog_F\ConsoleApplication6\ConsoleApplication6\bin\Debug\FSharp.Core.xml
