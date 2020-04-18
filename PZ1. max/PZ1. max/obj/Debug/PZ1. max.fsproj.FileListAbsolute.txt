@@ -6,3 +6,11 @@ C:\Prolog\26_2_prolog_F\PZ1. max\PZ1. max\bin\Debug\FSharp.Core.dll
 C:\Prolog\26_2_prolog_F\PZ1. max\PZ1. max\bin\Debug\FSharp.Core.xml
 C:\Prolog\26_2_prolog_F\PZ1. max\PZ1. max\obj\Debug\PZ1.max.exe
 C:\Prolog\26_2_prolog_F\PZ1. max\PZ1. max\obj\Debug\PZ1.max.pdb
+C:\Prolog\29_2_Prolog_F\PZ1. max\PZ1. max\bin\Debug\PZ1.max.XML
+C:\Prolog\29_2_Prolog_F\PZ1. max\PZ1. max\obj\Debug\PZ1.max.exe
+C:\Prolog\29_2_Prolog_F\PZ1. max\PZ1. max\obj\Debug\PZ1.max.pdb
+C:\Prolog\29_2_Prolog_F\PZ1. max\PZ1. max\bin\Debug\PZ1.max.exe.config
+C:\Prolog\29_2_Prolog_F\PZ1. max\PZ1. max\bin\Debug\PZ1.max.exe
+C:\Prolog\29_2_Prolog_F\PZ1. max\PZ1. max\bin\Debug\PZ1.max.pdb
+C:\Prolog\29_2_Prolog_F\PZ1. max\PZ1. max\bin\Debug\FSharp.Core.dll
+C:\Prolog\29_2_Prolog_F\PZ1. max\PZ1. max\bin\Debug\FSharp.Core.xml
