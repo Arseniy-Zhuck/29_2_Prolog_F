@@ -35,7 +35,4 @@ let rec write_list (list:int list)=
 
 
 [<EntryPoint>]
-let main argv = 
-    let l=read_data
-    let l2= prog l
-    write_list l2 // return an integer exit code
+let main argv = read_data |> prog |> write_list // return an integer exit code
